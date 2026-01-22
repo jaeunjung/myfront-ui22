@@ -154,7 +154,7 @@ class PlannerPage {
           <div class="planner__timeline-time">
             <input type="time" value="${item.time}" 
                    onchange="planner.updateTime(${index}, this.value)"
-                   style="border: none; background: none; font-weight: 600; color: var(--color-primary); font-size: inherit;">
+                   style="border: none; background: none; font-weight: 600; color: var(--accent-color); font-size: inherit;">
           </div>
           <div class="planner__timeline-place">
             <img src="${place.images[0]}" alt="${place.name}" class="planner__timeline-image">
