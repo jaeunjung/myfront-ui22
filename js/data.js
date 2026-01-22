@@ -13,9 +13,9 @@ const placesData = [
     hours: "05:00 - 22:00",
     admission: "무료",
     images: [
-      "https://images.unsplash.com/photo-1585938389612-a552a28c6914?w=800",
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400",
-      "https://images.unsplash.com/photo-1476673160081-cf065f1da091?w=400"
+      "https://images.unsplash.com/photo-1548115184-bc6544d06a58?w=800",
+      "https://images.unsplash.com/photo-1541582263897-1e7a9beb2b73?w=400",
+      "https://images.unsplash.com/photo-1549692520-acc6669e2f0c?w=400"
     ],
     rating: 4.7
   },
@@ -70,9 +70,9 @@ const placesData = [
     hours: "상시 개방",
     admission: "무료",
     images: [
-      "https://images.unsplash.com/photo-1561839630-4a5cfa3c2b77?w=800",
-      "https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=400",
-      "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=400"
+      "https://images.unsplash.com/photo-1548115184-bc6544d06a58?w=800",
+      "https://images.unsplash.com/photo-1541582263897-1e7a9beb2b73?w=400",
+      "https://images.unsplash.com/photo-1549692520-acc6669e2f0c?w=400"
     ],
     rating: 4.5
   },
@@ -127,9 +127,9 @@ const placesData = [
     hours: "상시 (주민 배려 필요)",
     admission: "무료",
     images: [
-      "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800",
-      "https://images.unsplash.com/photo-1565992441121-4367c2967103?w=400",
-      "https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?w=400"
+      "https://images.unsplash.com/photo-1548115184-bc6544d06a58?w=800",
+      "https://images.unsplash.com/photo-1541582263897-1e7a9beb2b73?w=400",
+      "https://images.unsplash.com/photo-1549692520-acc6669e2f0c?w=400"
     ],
     rating: 4.3
   },
@@ -146,9 +146,9 @@ const placesData = [
     hours: "09:00 - 18:00",
     admission: "무료",
     images: [
-      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800",
-      "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=400",
-      "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400"
+      "https://images.unsplash.com/photo-1548115184-bc6544d06a58?w=800",
+      "https://images.unsplash.com/photo-1541582263897-1e7a9beb2b73?w=400",
+      "https://images.unsplash.com/photo-1549692520-acc6669e2f0c?w=400"
     ],
     rating: 4.6
   },
@@ -165,9 +165,9 @@ const placesData = [
     hours: "24시간",
     admission: "무료",
     images: [
-      "https://images.unsplash.com/photo-1517483000871-1dbf64a6e1c6?w=800",
-      "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400",
-      "https://images.unsplash.com/photo-1462275646964-a0e3571f4f1f?w=400"
+      "https://images.unsplash.com/photo-1548115184-bc6544d06a58?w=800",
+      "https://images.unsplash.com/photo-1541582263897-1e7a9beb2b73?w=400",
+      "https://images.unsplash.com/photo-1549692520-acc6669e2f0c?w=400"
     ],
     rating: 4.5
   },
@@ -184,9 +184,9 @@ const placesData = [
     hours: "06:00 - 24:00",
     admission: "무료",
     images: [
-      "https://images.unsplash.com/photo-1500206329404-5c5e15b02468?w=800",
-      "https://images.unsplash.com/photo-1416169607655-0c2b3ce2e1cc?w=400",
-      "https://images.unsplash.com/photo-1504567961542-e24d9439a724?w=400"
+      "https://images.unsplash.com/photo-1548115184-bc6544d06a58?w=800",
+      "https://images.unsplash.com/photo-1541582263897-1e7a9beb2b73?w=400",
+      "https://images.unsplash.com/photo-1549692520-acc6669e2f0c?w=400"
     ],
     rating: 4.7
   },
@@ -203,9 +203,9 @@ const placesData = [
     hours: "24시간",
     admission: "무료",
     images: [
-      "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800",
-      "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=400",
-      "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=400"
+      "https://images.unsplash.com/photo-1548115184-bc6544d06a58?w=800",
+      "https://images.unsplash.com/photo-1541582263897-1e7a9beb2b73?w=400",
+      "https://images.unsplash.com/photo-1549692520-acc6669e2f0c?w=400"
     ],
     rating: 4.8
   },
@@ -222,9 +222,9 @@ const placesData = [
     hours: "24시간",
     admission: "무료",
     images: [
-      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800",
-      "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400",
-      "https://images.unsplash.com/photo-1498804103079-a6351b050096?w=400"
+      "https://images.unsplash.com/photo-1548115184-bc6544d06a58?w=800",
+      "https://images.unsplash.com/photo-1541582263897-1e7a9beb2b73?w=400",
+      "https://images.unsplash.com/photo-1549692520-acc6669e2f0c?w=400"
     ],
     rating: 4.4
   }

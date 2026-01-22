@@ -135,6 +135,652 @@
     animation-delay: 4s;
 }
 
+/* ===== NATURE DECORATIONS ===== */
+
+/* Floating Leaves */
+.nature-leaf {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.nature-leaf svg {
+    filter: drop-shadow(0 4px 8px rgba(45, 90, 62, 0.2));
+}
+
+.nature-leaf--1 {
+    top: 10%;
+    left: 5%;
+    animation: leafDrift 8s ease-in-out infinite;
+}
+
+.nature-leaf--2 {
+    top: 20%;
+    right: 8%;
+    animation: leafDrift 10s ease-in-out infinite 1s;
+}
+
+.nature-leaf--3 {
+    bottom: 25%;
+    left: 3%;
+    animation: leafDrift 9s ease-in-out infinite 2s;
+}
+
+.nature-leaf--4 {
+    bottom: 15%;
+    right: 5%;
+    animation: leafDrift 7s ease-in-out infinite 3s;
+}
+
+.nature-leaf--5 {
+    top: 40%;
+    left: 8%;
+    animation: leafDrift 11s ease-in-out infinite 4s;
+}
+
+.nature-leaf--6 {
+    top: 60%;
+    right: 3%;
+    animation: leafDrift 8.5s ease-in-out infinite 2.5s;
+}
+
+@keyframes leafDrift {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(-3deg);
+    }
+
+    75% {
+        transform: translateY(-20px) rotate(8deg);
+    }
+}
+
+/* Vine Decorations */
+.vine-decoration {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    overflow: visible;
+}
+
+.vine-decoration--left {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+}
+
+.vine-decoration--right {
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+}
+
+.vine-decoration svg {
+    height: 100%;
+    width: auto;
+    opacity: 0.3;
+}
+
+.vine-decoration--left svg {
+    animation: vineGrowLeft 20s ease-in-out infinite;
+}
+
+.vine-decoration--right svg {
+    animation: vineGrowRight 20s ease-in-out infinite 10s;
+}
+
+@keyframes vineGrowLeft {
+
+    0%,
+    100% {
+        transform: translateX(-30%) scaleY(1);
+        opacity: 0.25;
+    }
+
+    50% {
+        transform: translateX(-20%) scaleY(1.02);
+        opacity: 0.35;
+    }
+}
+
+@keyframes vineGrowRight {
+
+    0%,
+    100% {
+        transform: translateX(30%) scaleY(1);
+        opacity: 0.25;
+    }
+
+    50% {
+        transform: translateX(20%) scaleY(1.02);
+        opacity: 0.35;
+    }
+}
+
+/* Corner Foliage */
+.foliage-corner {
+    position: absolute;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.4;
+    transition: opacity 0.5s ease;
+}
+
+.foliage-corner:hover {
+    opacity: 0.6;
+}
+
+.foliage-corner--top-left {
+    top: 0;
+    left: 0;
+    transform: rotate(0deg);
+}
+
+.foliage-corner--top-right {
+    top: 0;
+    right: 0;
+    transform: rotate(90deg) scaleX(-1);
+}
+
+.foliage-corner--bottom-left {
+    bottom: 0;
+    left: 0;
+    transform: rotate(-90deg);
+}
+
+.foliage-corner--bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+/* Botanical Pattern Background */
+.botanical-pattern {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(ellipse at 20% 30%, var(--color-nature-glow) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, var(--color-nature-glow) 0%, transparent 50%);
+    opacity: 0.3;
+    animation: patternPulse 8s ease-in-out infinite;
+}
+
+@keyframes patternPulse {
+
+    0%,
+    100% {
+        opacity: 0.25;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+/* Organic Blobs */
+.organic-blob {
+    position: absolute;
+    border-radius: 50% 45% 55% 48% / 48% 52% 45% 55%;
+    pointer-events: none;
+    animation: blobMorph 10s ease-in-out infinite;
+}
+
+.organic-blob--1 {
+    width: 400px;
+    height: 400px;
+    top: -150px;
+    right: -100px;
+    background: linear-gradient(135deg,
+            rgba(93, 143, 76, 0.15) 0%,
+            rgba(157, 193, 131, 0.1) 100%);
+    animation-delay: 0s;
+}
+
+.organic-blob--2 {
+    width: 300px;
+    height: 300px;
+    bottom: -100px;
+    left: -80px;
+    background: linear-gradient(45deg,
+            rgba(143, 188, 143, 0.12) 0%,
+            rgba(124, 182, 104, 0.1) 100%);
+    animation-delay: 3s;
+}
+
+.organic-blob--3 {
+    width: 200px;
+    height: 200px;
+    top: 40%;
+    left: 15%;
+    background: linear-gradient(180deg,
+            rgba(184, 230, 193, 0.1) 0%,
+            rgba(45, 90, 62, 0.08) 100%);
+    animation-delay: 6s;
+}
+
+@keyframes blobMorph {
+
+    0%,
+    100% {
+        border-radius: 50% 45% 55% 48% / 48% 52% 45% 55%;
+        transform: scale(1) rotate(0deg);
+    }
+
+    25% {
+        border-radius: 45% 55% 48% 52% / 55% 45% 52% 48%;
+        transform: scale(1.05) rotate(2deg);
+    }
+
+    50% {
+        border-radius: 55% 48% 45% 52% / 52% 48% 55% 45%;
+        transform: scale(1) rotate(-2deg);
+    }
+
+    75% {
+        border-radius: 48% 52% 55% 45% / 45% 55% 48% 52%;
+        transform: scale(0.98) rotate(1deg);
+    }
+}
+
+/* Sparkle/Dewdrop Effects */
+.nature-sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(184, 230, 193, 0.6) 70%,
+            transparent 100%);
+    pointer-events: none;
+    animation: sparkleGlow 3s ease-in-out infinite;
+}
+
+.nature-sparkle--1 {
+    top: 15%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.nature-sparkle--2 {
+    top: 25%;
+    right: 25%;
+    animation-delay: 0.5s;
+}
+
+.nature-sparkle--3 {
+    top: 45%;
+    left: 10%;
+    animation-delay: 1s;
+}
+
+.nature-sparkle--4 {
+    top: 60%;
+    right: 15%;
+    animation-delay: 1.5s;
+}
+
+.nature-sparkle--5 {
+    bottom: 30%;
+    left: 25%;
+    animation-delay: 2s;
+}
+
+.nature-sparkle--6 {
+    bottom: 20%;
+    right: 30%;
+    animation-delay: 2.5s;
+}
+
+@keyframes sparkleGlow {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.8;
+    }
+}
+
+/* Nature-themed Intro Enhancement */
+.intro--nature {
+    background: linear-gradient(135deg,
+            var(--color-forest-dark) 0%,
+            var(--color-forest) 35%,
+            var(--color-primary) 70%,
+            var(--color-leaf) 100%);
+    background-size: 400% 400%;
+    animation: naturegradientFlow 20s ease infinite;
+}
+
+@keyframes naturegradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.intro--nature .intro__bg-pattern {
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(184, 230, 193, 0.2) 2px, transparent 2px),
+        radial-gradient(circle at 80% 50%, rgba(157, 193, 131, 0.15) 2px, transparent 2px),
+        radial-gradient(circle at 50% 30%, rgba(124, 182, 104, 0.1) 3px, transparent 3px);
+    background-size: 80px 80px, 60px 60px, 100px 100px;
+    opacity: 0.2;
+}
+
+/* Main Section Nature Enhancement */
+.main--nature {
+    background: linear-gradient(180deg,
+            #e8f5e9 0%,
+            #f1f8e9 30%,
+            #fafdf7 50%,
+            #f5faf0 70%,
+            #e8f0e5 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Forest Path Container */
+.main--nature::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 180px;
+    height: 100%;
+    background: linear-gradient(90deg,
+            rgba(30, 60, 40, 0.12) 0%,
+            rgba(45, 90, 62, 0.08) 30%,
+            rgba(90, 143, 76, 0.03) 70%,
+            transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.main--nature::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 180px;
+    height: 100%;
+    background: linear-gradient(-90deg,
+            rgba(30, 60, 40, 0.12) 0%,
+            rgba(45, 90, 62, 0.08) 30%,
+            rgba(90, 143, 76, 0.03) 70%,
+            transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Tree Silhouettes - Left Side */
+.forest-trees {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.forest-trees--left {
+    left: 0;
+}
+
+.forest-trees--right {
+    right: 0;
+}
+
+.tree-silhouette {
+    position: absolute;
+    bottom: 0;
+    fill: none;
+}
+
+/* Dappled Sunlight Effect */
+.sunlight-dapple {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+    background:
+        radial-gradient(ellipse 80px 120px at 15% 25%, rgba(255, 248, 220, 0.25) 0%, transparent 70%),
+        radial-gradient(ellipse 100px 80px at 85% 15%, rgba(255, 250, 205, 0.2) 0%, transparent 70%),
+        radial-gradient(ellipse 60px 90px at 10% 60%, rgba(255, 255, 224, 0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 90px 70px at 90% 45%, rgba(255, 248, 220, 0.22) 0%, transparent 70%),
+        radial-gradient(ellipse 70px 100px at 5% 85%, rgba(255, 250, 205, 0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 80px 60px at 95% 75%, rgba(255, 255, 224, 0.18) 0%, transparent 70%);
+    animation: dappledLight 8s ease-in-out infinite;
+}
+
+@keyframes dappledLight {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: translateY(-5px);
+    }
+}
+
+/* Forest Floor Path Texture */
+.forest-path {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1400px;
+    height: 150px;
+    pointer-events: none;
+    z-index: 1;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(139, 115, 85, 0.02) 30%,
+            rgba(139, 115, 85, 0.05) 60%,
+            rgba(107, 84, 60, 0.08) 100%);
+    mask-image: linear-gradient(to top, black 0%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, black 0%, transparent 100%);
+}
+
+/* Forest Atmosphere Gradient */
+.forest-atmosphere {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.4) 0%, transparent 60%),
+        radial-gradient(ellipse at 0% 50%, rgba(45, 90, 62, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 100% 50%, rgba(45, 90, 62, 0.05) 0%, transparent 50%);
+}
+
+/* Mist Effect at Bottom */
+.forest-mist {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    pointer-events: none;
+    z-index: 2;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.1) 50%,
+            rgba(245, 250, 240, 0.3) 100%);
+    animation: mistFloat 10s ease-in-out infinite;
+}
+
+@keyframes mistFloat {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: translateY(-10px);
+    }
+}
+
+/* Bird Silhouettes */
+.forest-bird {
+    position: fixed;
+    pointer-events: none;
+    z-index: 6;
+    opacity: 0.15;
+    animation: birdFly 30s linear infinite;
+}
+
+.forest-bird--1 {
+    top: 15%;
+    animation-delay: 0s;
+}
+
+.forest-bird--2 {
+    top: 25%;
+    animation-delay: 10s;
+}
+
+@keyframes birdFly {
+    0% {
+        left: -50px;
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-20px);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    75% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        left: 110%;
+        transform: translateY(0);
+    }
+}
+
+/* Nature Card Hover Effect */
+.nature-hover {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nature-hover::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg,
+            var(--color-leaf-light),
+            var(--color-moss),
+            var(--color-sage));
+    border-radius: inherit;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.4s ease;
+}
+
+.nature-hover:hover::before {
+    opacity: 1;
+}
+
+.nature-hover:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 20px 40px rgba(45, 90, 62, 0.15),
+        0 8px 16px rgba(124, 182, 104, 0.1);
+}
+
+/* Leaf Icon for UI Elements */
+.leaf-accent {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.leaf-accent::before {
+    content: '🍃';
+    font-size: 1em;
+    animation: leafSway 3s ease-in-out infinite;
+}
+
+@keyframes leafSway {
+
+    0%,
+    100% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+/* Section Divider with Nature */
+.nature-divider {
+    width: 100%;
+    height: 60px;
+    position: relative;
+    margin: var(--space-12) 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nature-divider::before,
+.nature-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            var(--color-moss) 50%,
+            transparent);
+}
+
+.nature-divider__icon {
+    padding: 0 var(--space-4);
+    font-size: var(--text-2xl);
+    animation: leafSway 4s ease-in-out infinite;
+}
+
 /* ===== MAIN SECTION ===== */
 .main {
     padding-top: var(--space-24);
@@ -654,4 +1300,815 @@
         padding: var(--space-4) var(--space-6);
         font-size: var(--text-base);
     }
+}
+
+/* ===== HANOK THEME INTRO ===== */
+
+/* 한옥 테마 배경 */
+.intro--hanok {
+    background: linear-gradient(135deg,
+            var(--color-night-sky) 0%,
+            var(--color-twilight) 30%,
+            #3D2D40 60%,
+            #4A3528 100%);
+    background-size: 400% 400%;
+    animation: hanokGradientFlow 25s ease infinite;
+}
+
+@keyframes hanokGradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* 한옥 패턴 배경 */
+.hanok-pattern {
+    background-image:
+        radial-gradient(circle at 25% 25%, rgba(255, 200, 100, 0.03) 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, rgba(255, 180, 80, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px, 60px 60px;
+    opacity: 0.5;
+}
+
+/* 창호지 문 스타일 */
+.hanji-door {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.hanji-door--left {
+    left: 0;
+    transform: perspective(800px) rotateY(15deg);
+    transform-origin: left center;
+}
+
+.hanji-door--right {
+    right: 0;
+    transform: perspective(800px) rotateY(-15deg);
+    transform-origin: right center;
+}
+
+.hanji-frame {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg,
+            var(--color-hanok-wood) 0%,
+            var(--color-hanok-wood-light) 50%,
+            var(--color-hanok-wood) 100%);
+    padding: 8px;
+    box-shadow:
+        inset 0 0 20px rgba(0, 0, 0, 0.3),
+        4px 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.hanji-door--right .hanji-frame {
+    box-shadow:
+        inset 0 0 20px rgba(0, 0, 0, 0.3),
+        -4px 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.hanji-grid {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 6px;
+}
+
+.hanji-cell {
+    background: linear-gradient(135deg,
+            var(--color-hanji-warm) 0%,
+            var(--color-hanji) 50%,
+            rgba(245, 230, 211, 0.9) 100%);
+    border-radius: 2px;
+    box-shadow:
+        inset 0 0 30px rgba(255, 200, 120, 0.2),
+        inset 0 0 60px rgba(255, 180, 100, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.hanji-cell::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 3px,
+            rgba(200, 180, 160, 0.1) 3px,
+            rgba(200, 180, 160, 0.1) 4px),
+        repeating-linear-gradient(90deg,
+            transparent,
+            transparent 5px,
+            rgba(200, 180, 160, 0.08) 5px,
+            rgba(200, 180, 160, 0.08) 6px);
+    opacity: 0.5;
+}
+
+/* 창호지를 통해 비치는 따뜻한 빛 */
+.hanji-cell::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center,
+            rgba(255, 200, 100, 0.15) 0%,
+            transparent 70%);
+    animation: hanjiGlow 4s ease-in-out infinite;
+}
+
+@keyframes hanjiGlow {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* 따뜻한 빛 효과 */
+.warm-glow {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(60px);
+    animation: warmGlowPulse 6s ease-in-out infinite;
+}
+
+.warm-glow--1 {
+    width: 400px;
+    height: 400px;
+    top: 20%;
+    left: 30%;
+    background: radial-gradient(circle, rgba(255, 180, 80, 0.2) 0%, transparent 70%);
+    animation-delay: 0s;
+}
+
+.warm-glow--2 {
+    width: 300px;
+    height: 300px;
+    bottom: 20%;
+    right: 25%;
+    background: radial-gradient(circle, rgba(255, 140, 60, 0.15) 0%, transparent 70%);
+    animation-delay: 2s;
+}
+
+.warm-glow--3 {
+    width: 250px;
+    height: 250px;
+    top: 50%;
+    left: 60%;
+    background: radial-gradient(circle, rgba(255, 200, 100, 0.12) 0%, transparent 70%);
+    animation-delay: 4s;
+}
+
+@keyframes warmGlowPulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+/* 등불 스타일 */
+.lantern {
+    position: absolute;
+    z-index: 10;
+    animation: lanternSway 4s ease-in-out infinite;
+}
+
+.lantern--1 {
+    top: 8%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.lantern--2 {
+    top: 12%;
+    right: 20%;
+    animation-delay: 1.5s;
+}
+
+.lantern--3 {
+    top: 5%;
+    left: 45%;
+    animation-delay: 3s;
+}
+
+@keyframes lanternSway {
+
+    0%,
+    100% {
+        transform: rotate(-2deg) translateX(0);
+    }
+
+    25% {
+        transform: rotate(1deg) translateX(3px);
+    }
+
+    50% {
+        transform: rotate(2deg) translateX(0);
+    }
+
+    75% {
+        transform: rotate(-1deg) translateX(-3px);
+    }
+}
+
+/* 등불 빛 효과 */
+.lantern-light {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(ellipse at center top,
+            rgba(255, 180, 80, 0.4) 0%,
+            rgba(255, 140, 60, 0.2) 30%,
+            transparent 70%);
+    filter: blur(15px);
+    animation: lanternLightFlicker 2s ease-in-out infinite;
+}
+
+@keyframes lanternLightFlicker {
+
+    0%,
+    100% {
+        opacity: 0.8;
+        transform: translateX(-50%) scale(1);
+    }
+
+    25% {
+        opacity: 0.9;
+        transform: translateX(-50%) scale(1.05);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: translateX(-50%) scale(0.95);
+    }
+
+    75% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.02);
+    }
+}
+
+/* 떠다니는 불씨 효과 */
+.ember {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            var(--color-lantern-core) 0%,
+            var(--color-ember) 50%,
+            transparent 100%);
+    pointer-events: none;
+    animation: emberFloat 8s ease-in-out infinite;
+    box-shadow:
+        0 0 6px rgba(255, 180, 80, 0.6),
+        0 0 12px rgba(255, 140, 60, 0.3);
+}
+
+.ember--1 {
+    left: 20%;
+    bottom: 30%;
+    animation-delay: 0s;
+    animation-duration: 7s;
+}
+
+.ember--2 {
+    left: 35%;
+    bottom: 40%;
+    animation-delay: 1s;
+    animation-duration: 9s;
+    width: 3px;
+    height: 3px;
+}
+
+.ember--3 {
+    right: 25%;
+    bottom: 35%;
+    animation-delay: 2s;
+    animation-duration: 8s;
+}
+
+.ember--4 {
+    right: 40%;
+    bottom: 25%;
+    animation-delay: 3s;
+    animation-duration: 10s;
+    width: 5px;
+    height: 5px;
+}
+
+.ember--5 {
+    left: 50%;
+    bottom: 50%;
+    animation-delay: 4s;
+    animation-duration: 6s;
+    width: 3px;
+    height: 3px;
+}
+
+.ember--6 {
+    right: 15%;
+    bottom: 45%;
+    animation-delay: 5s;
+    animation-duration: 11s;
+}
+
+.ember--7 {
+    left: 10%;
+    bottom: 55%;
+    animation-delay: 6s;
+    animation-duration: 8s;
+    width: 2px;
+    height: 2px;
+}
+
+.ember--8 {
+    right: 30%;
+    bottom: 60%;
+    animation-delay: 7s;
+    animation-duration: 9s;
+    width: 4px;
+    height: 4px;
+}
+
+@keyframes emberFloat {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: translateY(-100px) translateX(20px) scale(0.8);
+        opacity: 0.6;
+    }
+
+    90% {
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateY(-200px) translateX(-10px) scale(0.4);
+        opacity: 0;
+    }
+}
+
+/* 한옥 테마 버튼 */
+.btn-hanok {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-5) var(--space-8);
+    background: linear-gradient(135deg,
+            var(--color-hanok-wood) 0%,
+            var(--color-hanok-wood-light) 100%);
+    color: var(--color-hanji);
+    border: 2px solid var(--color-hanok-red);
+    border-radius: var(--radius-lg);
+    font-family: var(--font-serif);
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-hanok::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            transparent 0%,
+            rgba(255, 200, 100, 0.1) 50%,
+            transparent 100%);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.btn-hanok:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 8px 30px rgba(255, 140, 60, 0.3),
+        0 4px 15px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: var(--color-lantern-glow);
+}
+
+.btn-hanok:hover::before {
+    opacity: 1;
+}
+
+.btn-hanok svg {
+    transition: transform var(--transition-base);
+}
+
+.btn-hanok:hover svg {
+    transform: translateX(5px);
+}
+
+/* 한옥 테마 스크롤 아이콘 */
+.hanok-scroll {
+    border-color: rgba(245, 230, 211, 0.4) !important;
+}
+
+.hanok-scroll::before {
+    background: var(--color-hanji) !important;
+}
+
+.intro--hanok .intro__scroll {
+    color: rgba(245, 230, 211, 0.6);
+}
+
+/* 한옥 테마 텍스트 스타일 */
+.intro--hanok .intro__subtitle {
+    color: var(--color-hanji);
+    opacity: 0.8;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.intro--hanok .intro__title {
+    color: var(--color-hanji-warm);
+    text-shadow:
+        0 4px 30px rgba(255, 180, 100, 0.4),
+        0 2px 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.1em;
+}
+
+.intro--hanok .intro__desc {
+    color: rgba(245, 230, 211, 0.85);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 반응형 - 한옥 테마 */
+@media (max-width: 768px) {
+    .hanji-door {
+        width: 100px;
+    }
+
+    .lantern--1 {
+        left: 8%;
+        top: 8%;
+    }
+
+    .lantern--2 {
+        right: 8%;
+        top: 12%;
+    }
+
+    .lantern--3,
+    .lantern--4,
+    .lantern--5 {
+        display: none;
+    }
+
+    .lantern svg {
+        width: 40px;
+        height: 60px;
+    }
+
+    .btn-wood-frame {
+        padding: var(--space-4) var(--space-12);
+    }
+}
+
+@media (max-width: 480px) {
+    .hanji-door {
+        width: 60px;
+    }
+
+    .hanji-grid {
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    .lantern svg {
+        width: 30px;
+        height: 45px;
+    }
+
+    .intro--hanok .intro__title {
+        font-size: var(--text-4xl);
+    }
+
+    .btn-wood-frame {
+        padding: var(--space-3) var(--space-8);
+        font-size: var(--text-base);
+    }
+}
+
+/* ===== 창호지 격자 디테일 ===== */
+.hanji-lattice {
+    position: absolute;
+    inset: 4px;
+    pointer-events: none;
+}
+
+/* 창호지 격자 패턴 - 전통 정(井)자 문양 */
+.hanji-lattice::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        /* 세로 격자 */
+        linear-gradient(90deg,
+            transparent 0%,
+            transparent calc(50% - 1px),
+            rgba(74, 55, 40, 0.4) calc(50% - 1px),
+            rgba(74, 55, 40, 0.4) calc(50% + 1px),
+            transparent calc(50% + 1px),
+            transparent 100%),
+        /* 가로 격자 */
+        linear-gradient(0deg,
+            transparent 0%,
+            transparent calc(33% - 1px),
+            rgba(74, 55, 40, 0.35) calc(33% - 1px),
+            rgba(74, 55, 40, 0.35) calc(33% + 1px),
+            transparent calc(33% + 1px),
+            transparent calc(66% - 1px),
+            rgba(74, 55, 40, 0.35) calc(66% - 1px),
+            rgba(74, 55, 40, 0.35) calc(66% + 1px),
+            transparent calc(66% + 1px),
+            transparent 100%);
+}
+
+/* 문 손잡이 */
+.door-handle {
+    position: absolute;
+    width: 12px;
+    height: 28px;
+    background: linear-gradient(180deg,
+            #8B7355 0%,
+            #5D4E37 50%,
+            #3D3225 100%);
+    border-radius: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow:
+        inset 0 2px 4px rgba(255, 255, 255, 0.2),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.3),
+        2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.hanji-door--left .door-handle {
+    right: 15px;
+}
+
+.hanji-door--right .door-handle {
+    left: 15px;
+}
+
+/* 문 손잡이 장식 */
+.door-handle::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, #C9A86C 0%, #8B7355 100%);
+    border-radius: 50%;
+    box-shadow: 0 6px 0 #8B7355;
+}
+
+/* ===== 등불 부유 위치 (다양화) ===== */
+.lantern--1 {
+    top: 5%;
+    left: 12%;
+    animation: lanternFloat1 6s ease-in-out infinite;
+}
+
+.lantern--2 {
+    top: 15%;
+    right: 15%;
+    animation: lanternFloat2 7s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+.lantern--3 {
+    top: 8%;
+    left: 42%;
+    animation: lanternFloat3 5s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+.lantern--4 {
+    top: 20%;
+    left: 25%;
+    animation: lanternFloat2 8s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+.lantern--5 {
+    top: 12%;
+    right: 35%;
+    animation: lanternFloat1 6.5s ease-in-out infinite;
+    animation-delay: 3s;
+}
+
+/* 등불 부유 애니메이션 - 다양한 패턴 */
+@keyframes lanternFloat1 {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-1deg);
+    }
+
+    25% {
+        transform: translateY(-12px) rotate(1deg);
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(-0.5deg);
+    }
+
+    75% {
+        transform: translateY(-15px) rotate(0.5deg);
+    }
+}
+
+@keyframes lanternFloat2 {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0) rotate(0.5deg);
+    }
+
+    33% {
+        transform: translateY(-10px) translateX(5px) rotate(-1deg);
+    }
+
+    66% {
+        transform: translateY(-18px) translateX(-3px) rotate(1deg);
+    }
+}
+
+@keyframes lanternFloat3 {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1.02);
+    }
+}
+
+/* 등불 빛 크기 조정 */
+.lantern-light--small {
+    width: 60px;
+    height: 60px;
+}
+
+/* ===== 나무 프레임 버튼 (CSS 구현) ===== */
+.btn-wood-frame {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    padding: var(--space-5) var(--space-10);
+    color: var(--color-hanji-warm);
+    text-decoration: none;
+    font-family: var(--font-serif);
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    position: relative;
+    border: none;
+    background: transparent;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* 나무 프레임 외곽 */
+.btn-wood-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            #6B4423 0%,
+            #4A3018 15%,
+            #5D3A1A 50%,
+            #4A3018 85%,
+            #6B4423 100%);
+    border-radius: 8px;
+    border: 3px solid #3D2517;
+    box-shadow:
+        inset 0 2px 4px rgba(255, 200, 150, 0.2),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.3),
+        0 4px 15px rgba(0, 0, 0, 0.4),
+        0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+/* 나무 질감 패턴 */
+.btn-wood-frame::after {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    background:
+        repeating-linear-gradient(90deg,
+            transparent 0px,
+            transparent 3px,
+            rgba(139, 90, 43, 0.12) 3px,
+            rgba(139, 90, 43, 0.12) 5px),
+        linear-gradient(180deg,
+            rgba(70, 45, 20, 0.95) 0%,
+            rgba(55, 32, 12, 0.98) 50%,
+            rgba(70, 45, 20, 0.95) 100%);
+    border-radius: 4px;
+    border: 2px solid #5D3A1A;
+    box-shadow:
+        inset 0 0 20px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 200, 150, 0.1);
+    z-index: 1;
+}
+
+.btn-wood-frame__text {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-wood-frame__arrow {
+    position: relative;
+    z-index: 2;
+    transition: transform var(--transition-base);
+}
+
+/* 호버 효과 */
+.btn-wood-frame:hover {
+    transform: scale(1.03) translateY(-2px);
+}
+
+.btn-wood-frame:hover::before {
+    box-shadow:
+        inset 0 2px 4px rgba(255, 200, 150, 0.3),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.3),
+        0 8px 25px rgba(255, 150, 50, 0.3),
+        0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.btn-wood-frame:hover::after {
+    background:
+        repeating-linear-gradient(90deg,
+            transparent 0px,
+            transparent 3px,
+            rgba(139, 90, 43, 0.15) 3px,
+            rgba(139, 90, 43, 0.15) 5px),
+        linear-gradient(180deg,
+            rgba(80, 50, 22, 0.95) 0%,
+            rgba(60, 38, 15, 0.98) 50%,
+            rgba(80, 50, 22, 0.95) 100%);
+}
+
+.btn-wood-frame:hover .btn-wood-frame__arrow {
+    transform: translateX(5px);
+}
+
+/* 활성 상태 */
+.btn-wood-frame:active {
+    transform: scale(1.01);
+}
+
+.btn-wood-frame:active::after {
+    box-shadow:
+        inset 0 2px 15px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 200, 150, 0.05);
 }

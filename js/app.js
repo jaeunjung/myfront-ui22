@@ -28,11 +28,16 @@ class TeumsaeApp {
         this.main = document.querySelector('.main');
         this.searchInput = document.querySelector('.search-box__input');
         this.categoryBtns = document.querySelectorAll('.filter-btn[data-category]');
-        this.moodTags = document.querySelectorAll('.tag[data-mood]');
+        this.moodTags = document.querySelectorAll('.filter-btn[data-mood]');
         this.placesGrid = document.querySelector('.places-grid');
 
         // Header
         this.header = document.querySelector('.header');
+
+        // Modal
+        this.modalBackdrop = document.getElementById('place-modal-backdrop');
+        this.modalCloseBtn = document.getElementById('place-modal-close');
+        this.modalAddBtn = document.getElementById('modal-add-btn');
     }
 
     bindEvents() {
@@ -55,6 +60,8 @@ class TeumsaeApp {
         // Category Filters
         this.categoryBtns.forEach(btn => {
             btn.addEventListener('click', () => {
+                // Handle different behavior for multi-select vs single select if needed
+                // For category, single select:
                 this.categoryBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 this.currentCategory = btn.dataset.category;
@@ -62,16 +69,28 @@ class TeumsaeApp {
             });
         });
 
-        // Mood Tags
+        // Mood Tags (Multi-select)
         this.moodTags.forEach(tag => {
             tag.addEventListener('click', () => {
-                tag.classList.toggle('tag-active');
+                tag.classList.toggle('active');
                 this.filterPlaces();
             });
         });
 
         // Scroll
         window.addEventListener('scroll', () => this.handleScroll());
+
+        // Modal Close Events
+        if (this.modalCloseBtn) {
+            this.modalCloseBtn.addEventListener('click', () => this.closePlaceModal());
+        }
+        if (this.modalBackdrop) {
+            this.modalBackdrop.addEventListener('click', (e) => {
+                if (e.target === this.modalBackdrop) {
+                    this.closePlaceModal();
+                }
+            });
+        }
     }
 
     scrollToMain() {
@@ -111,7 +130,8 @@ class TeumsaeApp {
     }
 
     filterPlaces() {
-        const activeMoods = [...document.querySelectorAll('.tag[data-mood].tag-active')]
+        // Updated selector for active mood buttons
+        const activeMoods = [...document.querySelectorAll('.filter-btn[data-mood].active')]
             .map(tag => tag.dataset.mood);
 
         this.filteredPlaces = this.places.filter(place => {
@@ -182,8 +202,8 @@ class TeumsaeApp {
         this.placesGrid.querySelectorAll('.place-card').forEach(card => {
             card.addEventListener('click', (e) => {
                 if (!e.target.closest('.place-card__save')) {
-                    const id = card.dataset.id;
-                    window.location.href = `detail.html?id=${id}`;
+                    const id = parseInt(card.dataset.id);
+                    this.openPlaceModal(id);
                 }
             });
         });
@@ -283,6 +303,73 @@ class TeumsaeApp {
 
     initIntroAnimation() {
         // Intro is handled by CSS animations
+    }
+
+    openPlaceModal(id) {
+        const place = this.places.find(p => p.id === id);
+        if (!place) return;
+
+        // Populate Modal Data
+        document.getElementById('modal-hero-image').src = place.images[0];
+        document.getElementById('modal-category').textContent = place.category;
+        document.getElementById('modal-title').textContent = place.name;
+        document.getElementById('modal-address').textContent = place.address;
+
+        // Congestion
+        const congestionText = document.getElementById('modal-congestion-text');
+        const congestionIcon = document.querySelector('#modal-congestion svg');
+        congestionText.textContent = this.getCongestionText(place.congestion);
+
+        // Reset classes
+        const congestionSpan = document.getElementById('modal-congestion');
+        congestionSpan.className = 'place-modal__congestion';
+        if (place.congestion === 'normal') congestionSpan.classList.add('text-accent');
+        if (place.congestion === 'crowded') congestionSpan.classList.add('text-primary');
+
+        document.getElementById('modal-description').textContent = place.description;
+
+        // Tags
+        const tagsContainer = document.getElementById('modal-tags');
+        tagsContainer.innerHTML = place.tags.map(tag => `<span class="place-tag">#${tag}</span>`).join('');
+
+        // Info
+        document.getElementById('modal-hours').textContent = place.hours;
+        document.getElementById('modal-admission').textContent = place.admission;
+        document.getElementById('modal-rating').textContent = place.rating;
+
+        // Gallery
+        const galleryContainer = document.getElementById('modal-gallery');
+        galleryContainer.innerHTML = place.images.slice(0, 4).map(img =>
+            `<img src="${img}" alt="${place.name} Gallery">`
+        ).join('');
+
+        // Show Modal
+        this.modalBackdrop.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        document.documentElement.style.overflow = 'hidden';
+
+        // Force prevent wheel scroll on backdrop to stop propagation
+        this.modalBackdrop.addEventListener('wheel', this.preventScroll, { passive: false });
+        this.modalBackdrop.addEventListener('touchmove', this.preventScroll, { passive: false });
+    }
+
+    preventScroll(e) {
+        // Allow scroll only if target is inside modal content and has room to scroll
+        const modalContent = e.target.closest('.place-modal__content');
+        if (!modalContent) {
+            e.preventDefault();
+        }
+    }
+
+    closePlaceModal() {
+        if (this.modalBackdrop) {
+            this.modalBackdrop.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+            document.documentElement.style.overflow = '';
+
+            this.modalBackdrop.removeEventListener('wheel', this.preventScroll);
+            this.modalBackdrop.removeEventListener('touchmove', this.preventScroll);
+        }
     }
 }
 
